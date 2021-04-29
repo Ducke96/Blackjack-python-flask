@@ -12,8 +12,7 @@ cartas = ["1-diamante", "2-diamante", "3-diamante", "4-diamante", "5-diamante", 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html')
-
+    return render_template('index.html' , cartas = cartas)
 
 @app.route("/iniciar", methods=['GET', 'POST'])
 def iniciar():
@@ -32,6 +31,7 @@ def dame():
         if elegida == cartaselect:
             print(elegida)
             cartas.remove(elegida)
+            
             
 
     if request.method == 'POST':
@@ -83,13 +83,25 @@ def desicion():
         result = desicion
         resp = make_response(result)
         resp.headers['Content-Type'] = "application/json"
-
-
-  
-    
-
-            
+ 
+           
     return result
+
+
+
+@app.route('/Pruebas', methods=['GET', 'POST'])
+def hola():
+
+
+
+
+
+
+
+
+
+
+    return render_template('Pruebas.html')
 
 
 if __name__ == "__main__":
